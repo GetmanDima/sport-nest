@@ -1,0 +1,159 @@
+html, body, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.page {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-green {
+    background-color: #12C462;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background-color: #229353;
+}
+
+.btn-green-outline {
+    border: 1px solid #12C462;
+}
+
+.btn-green-outline:hover {
+    background-color: #12C462;
+    color: #fff;
+}
+
+.logo {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.header {
+    padding: 20px 0;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu__item {
+    list-style-type: none;
+    margin-left: 10px;
+}
+
+.info {
+    background-color: #f0f0f0;
+    padding-bottom: 60px;
+    padding-top: 40px;
+}
+
+.info-player {
+    padding-top: 0;
+}
+
+.info__header {
+    font-size: 25px;
+    text-align: center;
+    font-weight: lighter;
+    margin-bottom: 40px;
+}
+.info__description {
+    font-size: 18px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.list {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.list__header {
+    background-color: #f7f7f7;
+    padding: 30px 40px;
+}
+
+.list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 40px;
+    background-color: #fff;
+    margin-bottom: 2px;
+    border-radius: 5px;
+}
+.list__item-header {
+    margin-right: 15px;
+}
+
+.list__item-player {
+    justify-content: start;
+}
+
+.timetable {
+    height: 250px;
+    background-image: url("https://placeimg.com/1000/200/tech");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 30px;
+}
+
+.timetable__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timetable__header {
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    line-height: 2;
+    font-style: italic;
+}
+
+.timetable__header span {
+    display: block;
+}
+
+.timetable__more {
+    margin: 30px auto;
+}
+
+.footer {
+    padding: 40px 0;
+    background-color: #1A1A1A;
+}
+
+.footer__logo {
+    color: #fff;
+}
+

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TweeSport</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div class="page">
+    <header class="header">
+        <div class="container header__container">
+            <h1 class="logo">TweeSport</h1>
+            <ul class="menu">
+                <li class="menu__item">
+                    <a href="/" class="menu__link btn btn-green-outline">Главная</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <div class="info">
+            <div class="container">
+                <h2 class="info__header">{{team.name}}</h2>
+                <div class="info__description">
+                    {{team.description}}
+                </div>
+            </div>
+        </div>
+        <div class="info info-player">
+            <div class="container">
+                <h2 class="info__header">Состав</h2>
+                <div class="list">
+                    {{#each team.players}}
+                        <div class="list__item list__item-player">
+                            <h4 class="list__item-header" style="margin-right: 20px">
+                                <span>ФИО: </span>
+                                <span>{{this.surname}} {{this.name}} {{this.patronymic}}</span>
+                            </h4>
+                            <h4 class="list__item-header">
+                                <span>День рождения:</span>
+                                <span>{{this.birthday}}</span>
+                            </h4>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <h2 class="logo footer__logo">TweeSport</h2>
+            <div class="social">
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
