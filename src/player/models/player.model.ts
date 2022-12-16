@@ -5,7 +5,6 @@ interface PlayerCreationAttrs {
   surname: string
   name: string
   patronymic: string
-  birthday: Date
   teamName: string
 }
 
@@ -19,9 +18,6 @@ export class Player extends Model<Player, PlayerCreationAttrs> {
 
   @Column({type: DataType.STRING})
   patronymic: string;
-
-  @Column({type: DataType.DATEONLY, allowNull: false})
-  birthday: Date;
 
   @ForeignKey(() => Team)
   @Column({type: DataType.STRING})
