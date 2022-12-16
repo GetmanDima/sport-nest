@@ -1,7 +1,8 @@
-import {Table, Column, Model, DataType, BelongsTo, HasOne, BelongsToMany} from 'sequelize-typescript';
+import { Table, Column, Model, DataType, HasOne, BelongsToMany, HasMany } from "sequelize-typescript";
 import {Timetable} from "../../timetable/models/timetable.model";
 import {TeamTournament} from "../../team/models/team-tournament.model";
 import {Team} from "../../team/models/team.model";
+import { Game } from "../../game/models/game.model";
 
 interface TournamentCreationAttrs {
   name: string;
@@ -25,6 +26,9 @@ export class Tournament extends Model<Tournament, TournamentCreationAttrs> {
 
   @HasOne(() => Timetable)
   timetable: Timetable
+
+  @HasMany(() => Game)
+  games: Game[]
 
   @BelongsToMany(() => Team, () => TeamTournament)
   teams: Team[]

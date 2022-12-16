@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, Render} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {TournamentService} from "./tournament.service";
 import {CreateTournamentDto} from "./dto/create-tournament.dto";
 import {BindTeamDto} from "./dto/bind-team.dto";
@@ -13,10 +13,8 @@ export class TournamentController {
   }
 
   @Get('/:tournamentName')
-  @Render("single-tournament")
-  async getOne(@Param('tournamentName') tournamentName: string) {
-    const tournament = await this.tournamentService.getTournament(tournamentName);
-    return {tournament}
+  getOne(@Param('tournamentName') tournamentName: string) {
+    return this.tournamentService.getTournament(tournamentName);
   }
 
   @Post('/:tournamentName/teams/:teamName')

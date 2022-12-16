@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TournamentModule } from './tournament/tournament.module';
-import { TournamentController } from './tournament/tournament.controller';
 import {SequelizeModule} from "@nestjs/sequelize";
 import {Tournament} from "./tournament/models/tournament.model";
 import { TimetableModule } from './timetable/timetable.module';
@@ -11,7 +10,9 @@ import {TeamTournament} from "./team/models/team-tournament.model";
 import {Team} from "./team/models/team.model";
 import { PlayerModule } from './player/player.module';
 import {Player} from "./player/models/player.model";
-import { MainController } from './main/main.controller';
+import { GameModule } from './game/game.module';
+import { Game } from "./game/models/game.model";
+import { GameTeam } from "./game/dto/game-team.model";
 
 const envFileName = process.env.NODE_ENV === "production" ? "production" : "development";
 
@@ -28,13 +29,14 @@ const envFileName = process.env.NODE_ENV === "production" ? "production" : "deve
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       autoLoadModels: true,
-      models: [Tournament, Timetable, Team, TeamTournament, Player],
+      models: [Tournament, Timetable, Team, TeamTournament, Player, Game, GameTeam],
     }),
     TournamentModule,
     TimetableModule,
     TeamModule,
     PlayerModule,
+    GameModule,
   ],
-  controllers: [MainController],
+  controllers: [],
 })
 export class AppModule {}

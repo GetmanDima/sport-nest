@@ -4,6 +4,8 @@ import {Team} from "./models/team.model";
 import {CreateTeamDto} from "./dto/create-team.dto";
 import {BindPlayerDto} from "./dto/bind-player.dto";
 import {Player} from "../player/models/player.model";
+import { Tournament } from "../tournament/models/tournament.model";
+import { Game } from "../game/models/game.model";
 
 @Injectable()
 export class TeamService {
@@ -17,7 +19,7 @@ export class TeamService {
   }
 
   async getTeam(teamName: string) {
-    return await this.teamRepository.findByPk(teamName, {include: Player})
+    return await this.teamRepository.findByPk(teamName, {include: [Player, Tournament, Game]})
   }
 
   async createTeam(dto: CreateTeamDto) {

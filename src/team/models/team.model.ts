@@ -3,16 +3,14 @@ import {
   Column,
   Model,
   DataType,
-  ForeignKey,
-  BelongsTo,
   BelongsToMany,
-  HasOne,
   HasMany
 } from 'sequelize-typescript';
 import {Tournament} from "../../tournament/models/tournament.model";
 import {TeamTournament} from "./team-tournament.model";
-import {Timetable} from "../../timetable/models/timetable.model";
 import {Player} from "../../player/models/player.model";
+import { Game } from "../../game/models/game.model";
+import { GameTeam } from "../../game/dto/game-team.model";
 
 interface TeamCreationAttrs {
   name: string;
@@ -32,4 +30,7 @@ export class Team extends Model<Team, TeamCreationAttrs> {
 
   @BelongsToMany(() => Tournament, () => TeamTournament)
   tournaments: Tournament[]
+
+  @BelongsToMany(() => Game, () => GameTeam)
+  games: Game[]
 }
