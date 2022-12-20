@@ -1,7 +1,7 @@
 import { Table, Column, Model, DataType, ForeignKey, BelongsTo, BelongsToMany } from "sequelize-typescript";
 import {Team} from "../../team/models/team.model";
 import { Tournament } from "../../tournament/models/tournament.model";
-import { GameTeam } from "../dto/game-team.model";
+import { GameTeam } from "./game-team.model";
 
 interface GameCreationAttrs {
   tournamentName: string
@@ -14,7 +14,7 @@ export class Game extends Model<Game, GameCreationAttrs> {
   date: Date;
 
   @ForeignKey(() => Tournament)
-  @Column({type: DataType.STRING})
+  @Column({type: DataType.STRING, allowNull: false})
   tournamentName: string;
 
   @BelongsTo(() => Tournament)

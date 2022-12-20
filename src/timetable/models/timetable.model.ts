@@ -20,7 +20,7 @@ export class Timetable extends Model<Timetable, TimetableCreationAttrs> {
   finishDate: Date;
 
   @ForeignKey(() => Tournament)
-  @Column({type: DataType.STRING, unique: true})
+  @Column({type: DataType.STRING, unique: true, allowNull: false})
   tournamentName: string;
 
   @BelongsTo(() => Tournament)

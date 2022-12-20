@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { TournamentModule } from './tournament/tournament.module';
 import {SequelizeModule} from "@nestjs/sequelize";
 import {Tournament} from "./tournament/models/tournament.model";
@@ -12,15 +11,19 @@ import { PlayerModule } from './player/player.module';
 import {Player} from "./player/models/player.model";
 import { GameModule } from './game/game.module';
 import { Game } from "./game/models/game.model";
-import { GameTeam } from "./game/dto/game-team.model";
-
-const envFileName = process.env.NODE_ENV === "production" ? "production" : "development";
+import { GameTeam } from "./game/models/game-team.model";
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import { User } from "./user/models/user.model";
+import { AppConfigModule } from './app-config/app-config.module';
+import { ArticleModule } from './article/article.module';
+import { Article } from "./article/models/article.model";
+import { CommentModule } from './comment/comment.module';
+import { Comment } from "./comment/models/comment.model";
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      envFilePath: `.${envFileName}.env`
-    }),
+    AppConfigModule,
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: process.env.POSTGRES_HOST,
@@ -29,13 +32,17 @@ const envFileName = process.env.NODE_ENV === "production" ? "production" : "deve
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       autoLoadModels: true,
-      models: [Tournament, Timetable, Team, TeamTournament, Player, Game, GameTeam],
+      models: [Tournament, Timetable, Team, TeamTournament, Player, Game, GameTeam, User, Article, Comment],
     }),
     TournamentModule,
     TimetableModule,
     TeamModule,
     PlayerModule,
     GameModule,
+    UserModule,
+    AuthModule,
+    ArticleModule,
+    CommentModule,
   ],
   controllers: [],
 })

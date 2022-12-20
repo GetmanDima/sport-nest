@@ -10,7 +10,7 @@ import {Tournament} from "../../tournament/models/tournament.model";
 import {TeamTournament} from "./team-tournament.model";
 import {Player} from "../../player/models/player.model";
 import { Game } from "../../game/models/game.model";
-import { GameTeam } from "../../game/dto/game-team.model";
+import { GameTeam } from "../../game/models/game-team.model";
 
 interface TeamCreationAttrs {
   name: string;
@@ -19,7 +19,7 @@ interface TeamCreationAttrs {
 
 @Table({tableName: 'teams', timestamps: false})
 export class Team extends Model<Team, TeamCreationAttrs> {
-  @Column({type: DataType.STRING, unique: true, primaryKey: true})
+  @Column({type: DataType.STRING, primaryKey: true})
   name: string;
 
   @Column({type: DataType.TEXT})

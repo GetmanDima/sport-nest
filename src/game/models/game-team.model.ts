@@ -1,5 +1,5 @@
 import {Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
-import { Game } from "../models/game.model";
+import { Game } from "./game.model";
 import { Team } from "../../team/models/team.model";
 
 @Table({tableName: 'games_teams', timestamps: false})
