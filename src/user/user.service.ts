@@ -10,8 +10,8 @@ export class UserService {
     private userRepository: typeof User
   ) {}
 
-  async getUserByEmail(email: string) {
-    return await this.userRepository.findOne({where: {email}})
+  async getUserByNickname(nickname: string) {
+    return await this.userRepository.findOne({where: {nickname}})
   }
 
   async createUser(dto: CreateUserDto) {

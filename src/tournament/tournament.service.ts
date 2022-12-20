@@ -5,6 +5,7 @@ import {CreateTournamentDto} from "./dto/create-tournament.dto";
 import {BindTeamDto} from "./dto/bind-team.dto";
 import {Team} from "../team/models/team.model";
 import { Game } from "../game/models/game.model";
+import { Timetable } from "../timetable/models/timetable.model";
 
 @Injectable()
 export class TournamentService {
@@ -25,7 +26,8 @@ export class TournamentService {
           model: Game,
           attributes: {exclude: ["tournamentName"]},
           include: [{model: Team, attributes: ['name'], through: {attributes: []}}]
-        }
+        },
+        {model: Timetable, attributes: ['startDate', 'finishDate']}
       ]}
     );
   }

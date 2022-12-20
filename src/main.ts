@@ -18,6 +18,8 @@ async function bootstrap() {
     app.setBaseViewsDir(join(__dirname, '..', 'src/views'));
     app.setViewEngine('hbs');
 
+    app.enableCors()
+
     await app.listen(PORT, () => {
       console.log(`Server started on port ${PORT}`)
     });
