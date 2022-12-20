@@ -18,7 +18,7 @@ export class Comment extends Model<Comment, CommentCreationAttrs> {
   @Column({type: DataType.STRING, primaryKey: true})
   authorNickname: string;
 
-  @Column({type: DataType.STRING, allowNull: false})
+  @Column({type: DataType.TEXT, allowNull: false})
   content: string;
 
   @Column({type: DataType.DATE, defaultValue: Date.now})

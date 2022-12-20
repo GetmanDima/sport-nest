@@ -14,9 +14,9 @@ async function bootstrap() {
     app.useGlobalPipes(new ValidationPipe());
     app.useGlobalFilters(new QueryExceptionFilter())
 
-    app.useStaticAssets(join(__dirname, '..', 'src/assets'));
-    app.setBaseViewsDir(join(__dirname, '..', 'src/views'));
-    app.setViewEngine('hbs');
+    // app.useStaticAssets(join(__dirname, '..', 'src/assets'));
+    // app.setBaseViewsDir(join(__dirname, '..', 'src/views'));
+    // app.setViewEngine('hbs');
 
     app.enableCors()
 
